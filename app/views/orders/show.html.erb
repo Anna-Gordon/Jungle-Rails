@@ -7,8 +7,9 @@
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
-  
+
   <div>
+  <p>Quantity: <%= @item[2]%></p>
     <tr>
       <td>
         Total: <%= humanized_money_with_symbol @order.total_cents / 100.0 %> 
