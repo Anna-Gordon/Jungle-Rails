@@ -8,29 +8,7 @@
     <h4>Thank you for your order!</h4>
   </div>
 
-  <div>
-    <h3>Order details:</h4>
-    <tr>
-      <td>
-        <%= image_tag @products.image.tiny %>
-      </td>
-      <td>
-        <h4><%= @products.name %></h4>
-        <br>
-        <p><%= @products.description %></p>
-      </td>
-      <td>
-        <p>Quantity: <%= @item.quantity %></p>
-        <p>Item total: <%= humanized_money_with_symbol @item.total_price_cents / 100.0 %></p>
-      </td>
-      <td>
-        <p>Order total: <%= humanized_money_with_symbol @order.total_cents / 100.0 %></p>
-      </td>
-      <td>
-        <p>Email: <%= @order.email %></p>
-      </td>
-    </tr>
-  </div>
+  <%= render 'item' %>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
