@@ -9,13 +9,25 @@
   </div>
 
   <div>
-  <p>Quantity: <%= @item[2]%></p>
+    <h3>Order details:</h4>
     <tr>
       <td>
-        Total: <%= humanized_money_with_symbol @order.total_cents / 100.0 %> 
+        <%= image_tag @products.image.tiny %>
       </td>
       <td>
-        Email: <%= @order.email %>
+        <h4><%= @products.name %></h4>
+        <br>
+        <p><%= @products.description %></p>
+      </td>
+      <td>
+        <p>Quantity: <%= @item.quantity %></p>
+        <p>Item total: <%= humanized_money_with_symbol @item.total_price_cents / 100.0 %></p>
+      </td>
+      <td>
+        <p>Order total: <%= humanized_money_with_symbol @order.total_cents / 100.0 %></p>
+      </td>
+      <td>
+        <p>Email: <%= @order.email %></p>
       </td>
     </tr>
   </div>
