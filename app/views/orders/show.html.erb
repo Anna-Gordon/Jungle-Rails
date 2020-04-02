@@ -5,11 +5,13 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <h4>Thank you for your order <%= @order.email %>!</h4>
+  
+    <%= render 'item' %>
+    <p><b>Total: <%= humanized_money_with_symbol @order.total_cents / 100.0 %></b></p>
   </div>
-
-  <%= render 'item' %>
-
+    
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
-
+    
 </section>
+    

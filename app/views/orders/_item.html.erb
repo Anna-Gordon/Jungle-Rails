@@ -1,23 +1,11 @@
-<div>
-<h3>Order details:</h4>
-<tr>
-  <td>
-    <%= image_tag @products.image.tiny %>
-  </td>
-  <td>
-    <h4><%= @products.name %></h4>
-    <br>
-    <p><%= @products.description %></p>
-  </td>
-  <td>
-    <p>Quantity: <%= @item.quantity %></p>
-    <p>Item total: <%= humanized_money_with_symbol @item.total_price_cents / 100.0 %></p>
-  </td>
-  <td>
-    <p>Order total: <%= humanized_money_with_symbol @order.total_cents / 100.0 %></p>
-  </td>
-  <td>
-    <p>Email: <%= @order.email %></p>
-  </td>
-</tr>
-</div>
+
+
+<table>
+    <% @order.line_items.each do |line_item| %>
+      <img style="width: 50px; height: 50px;" src="<%= line_item.product.image %>">
+      <p><b>Product:</b> <%=line_item.product.name %></p>
+      <p><b>Description:</b> <%=line_item.product.description %></p>
+      <p><b>Quantity:</b> <%= line_item.quantity %></p>
+      <p><b>Price:</b> <%= humanized_money_with_symbol line_item.product.price_cents / 100.0 %></p>
+    <% end %>
+</table>
