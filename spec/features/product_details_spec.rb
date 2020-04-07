@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.feature "HomePages", type: :feature, js: true do
+RSpec.feature "ProductDetails", type: :feature, js: true do
 
   #SET UP
   before :each do
-    @category = Category.create! name: 'Apparel'
+  @category = Category.create! name: 'Apparel'
 
     10.times do |n|
       @category.products.create!(
@@ -16,11 +16,13 @@ RSpec.feature "HomePages", type: :feature, js: true do
       )
     end
   end
-  xscenario "They see all products" do
+  scenario "They see product details page" do
     #ACTION
     visit root_path
+    find('.details', match: :first).click
     #VERIFY
+    sleep(1)
     save_screenshot
-    expect(page).to have_css 'article.product', count: 10
+    expect(page).to have_css 'article.product-detail', count: 1
   end
 end
