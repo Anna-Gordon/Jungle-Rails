@@ -44,8 +44,8 @@ RSpec.describe User, type: :model do
       expect(User.authenticate_with_credentials("test@test.com", "12345")).to eq(nil)
     end
     it "returns user if user found" do
-      user = User.authenticate_with_credentials("test@test.com", "123456")
-      p user
+      # user = User.authenticate_with_credentials("test@test.com", "123456")
+      p subject
       expect(User.authenticate_with_credentials("test@test.com", "123456")).to eq(subject)
     end
     # it "is valid if email when ' example@domain.com '" do
