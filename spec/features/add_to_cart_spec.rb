@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "HomePages", type: :feature, js: true do
+RSpec.feature "AddToCarts", type: :feature, js: true do
 
   #SET UP
   before :each do
@@ -16,11 +16,19 @@ RSpec.feature "HomePages", type: :feature, js: true do
       )
     end
   end
-  scenario "They see all products" do
+  scenario "The cart number increases by one when one product is added to the cart" do 
+
     #ACTION
     visit root_path
     #VERIFY
     save_screenshot
-    expect(page).to have_css 'article.product', count: 10
+    expect(page).to have_text 'My Cart (0)'
+    
+    #ACTION
+    find('.add', match: :first).click
+    #VERIFY
+    sleep(1)
+    save_screenshot
+    expect(page).to have_text 'My Cart (1)'
   end
 end
