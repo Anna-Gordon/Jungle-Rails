@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
-  subject{
+  subject {
     described_class.new(first_name: "Joe",
                         last_name: "Lee", 
                         email: "test@test.com", 
@@ -24,6 +24,7 @@ RSpec.describe User, type: :model do
     # it "is not valid when TEST@TEST.com" do
     #   subject.email = "TEST@TEST.com";
     #   expect(subject).to_not eq("test@test.COM")
+    ### ? expect(subject.email).to_not eq("test@test.COM")
     # end
 #     it { should validate_uniqueness_of(:email).on(:create) }
 #     it "is valid if email, first_name, last_name are present" do
@@ -38,19 +39,19 @@ RSpec.describe User, type: :model do
   # end
 
   describe '.authenticate_with_credentials' do
-    let(:result) { @user = User.authenticate_with_credentials(subject.email, subject.password)}
+    # let(:result) { @user = User.authenticate_with_credentials(subject.email, subject.password)}
     it "returns nil if user not found" do
-      subject.password = "222"
-      expect(@user).to eq(nil)
+      expect(User.authenticate_with_credentials("test@test.com", "12345")).to eq(nil)
     end
     it "returns user if user found" do
-      p result, @user
-      expect(@user).to eq(@user)
+      user = User.authenticate_with_credentials("test@test.com", "123456")
+      p user
+      expect(User.authenticate_with_credentials("test@test.com", "123456")).to eq(subject)
     end
-    it "is valid if email when ' example@domain.com '" do
-      subject.email = " TEST@test.com "
-      expect(@user).to eq(@user)
-    end 
+    # it "is valid if email when ' example@domain.com '" do
+    # # #   subject.email = " TEST@test.com "
+    # #   # expect(@user).to eq(@user)
+    # end 
   end
 
 end
