@@ -16,7 +16,7 @@ RSpec.feature "AddToCarts", type: :feature, js: true do
       )
     end
   end
-  xscenario "The cart number increases by one when one product is added to the cart" do 
+  scenario "The cart number increases by one when one product is added to the cart" do 
 
     #ACTION
     visit root_path
