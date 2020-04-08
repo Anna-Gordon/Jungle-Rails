@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
   subject {
     described_class.new(first_name: "Joe",
                         last_name: "Lee", 
@@ -9,6 +8,7 @@ RSpec.describe User, type: :model do
                         password: "123456", 
                         password_confirmation: "123456")
   }
+
   # describe 'Validations' do
     # it "is valid when password and password-confirmation match" do
     #   expect(subject.password).to eq(subject.password_confirmation)
@@ -39,19 +39,29 @@ RSpec.describe User, type: :model do
   # end
 
   describe '.authenticate_with_credentials' do
-    # let(:result) { @user = User.authenticate_with_credentials(subject.email, subject.password)}
+    
     it "returns nil if user not found" do
-      expect(User.authenticate_with_credentials("test@test.com", "12345")).to eq(nil)
+      expect(User.authenticate_with_credentials("t@test.com", "123")).to eq(nil)
     end
     it "returns user if user found" do
-      # user = User.authenticate_with_credentials("test@test.com", "123456")
-      p subject
-      expect(User.authenticate_with_credentials("test@test.com", "123456")).to eq(subject)
+      expect(User.authenticate_with_credentials("test@test.com", "123456").valid?).to eq(true)
     end
-    # it "is valid if email when ' example@domain.com '" do
-    # # #   subject.email = " TEST@test.com "
-    # #   # expect(@user).to eq(@user)
-    # end 
   end
-
+  
 end
+
+
+
+
+
+
+
+
+
+
+
+
+# it "is valid if email when ' example@domain.com '" do
+#      subject.email = " TEST@test.com "
+#      expect(@user).to eq(@user)
+# end 

@@ -16,7 +16,7 @@ RSpec.feature "HomePages", type: :feature, js: true do
       )
     end
   end
-  scenario "They see all products" do
+  xscenario "They see all products" do
     #ACTION
     visit root_path
     #VERIFY

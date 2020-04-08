@@ -5,7 +5,9 @@ class SessionsController < ApplicationController
 
   def create
     # user = User.find_by_email(params[:email])
-    if user = User.authenticate_with_credentials(params[:email], params[:password])
+    # if user = User.authenticate_with_credentials(params[:email], params[:password])
+    #   if user && user.authenticate(params[:password])
+    user = User.authenticate_with_credentials(params[:email], params[:password])
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         flash[:success] = 'Successfully Logged In!'
@@ -14,15 +16,6 @@ class SessionsController < ApplicationController
         flash[:warning] = 'Invalid Username or Password'
         redirect_to '/login'
       end
-
-    # if user && user.authenticate(params[:password])
-    #   session[:user_id] = user.id
-    #   flash[:success] = 'Successfully Logged In!'
-    #   redirect_to '/'
-    # else
-    #   flash[:warning] = 'Invalid Username or Password'
-    #   redirect_to '/login'
-    end
   end
 
   def destroy
