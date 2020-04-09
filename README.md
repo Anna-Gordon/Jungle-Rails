@@ -1,6 +1,6 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes. Two types of users: Client and Admin. Admin can create categories and products. Client can register, make purchase and pay for order. 
+A mini e-commerce application built with Rails 4.2 for purposes. Two types of users: Client and Admin. Admin can create categories and products. Client can register, browes products and make purchase. 
 
 
 ## Setup
