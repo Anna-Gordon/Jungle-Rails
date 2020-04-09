@@ -29,3 +29,8 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Capybara
 * RSpec
 * Poltergeist
+
+## Screenshots
+
+!["Home_page"](https://github.com/Anna-Gordon/Jungle-Rails/blob/master/docs/Home_page.png?raw=true)
+!["Order_details_page"](https://github.com/Anna-Gordon/Jungle-Rails/blob/master/docs/Order_details_page.png?raw=true)
