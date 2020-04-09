@@ -13,6 +13,7 @@ A mini e-commerce application built with Rails 4.2 for purposes. Two types of us
 6. Sign up for a Stripe account
 7. Put Stripe (test) keys into appropriate .env vars
 8. Run `bin/rails s -b 0.0.0.0` to start the server
+9. Generate the binstub `bundle binstubs rspec-core`. Run RSpec `bin/rspec`
 
 ## Stripe Testing
 

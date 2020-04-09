@@ -13,25 +13,3 @@ class User < ActiveRecord::Base
     end
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-  # def self.authenticate_with_credentials(email, password)    
-  #   user = User.create(
-  #     email: email,
-  #     password: password,
-  #                     password_confirmation: password)
-  #   if user.valid? #&& user.authenticate(password)
-  #     user
-  #   else
-  #     nil
-  #   end
-  # end  

@@ -40,10 +40,10 @@ RSpec.describe User, type: :model do
   describe '.authenticate_with_credentials' do
     before(:each) do
       @user = User.create(first_name: "Joe",
-                        last_name: "Lee", 
-                        email: "test@test.com", 
-                        password: "123456", 
-                        password_confirmation: "123456")
+                          last_name: "Lee", 
+                          email: "test@test.com", 
+                          password: "123456", 
+                          password_confirmation: "123456")
     end
 
     it "returns nil if user not found" do
